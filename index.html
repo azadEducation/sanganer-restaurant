@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sanganer Resort & Restaurant | Bhilwara</title>
+  <title>Sanganer Resort & Restaurant | Pure Veg Dining in Bhilwara</title>
+  <meta name="description" content="Sanganer Resort & Restaurant — Bhilwara's finest pure vegetarian restaurant. Rajasthani Dal Bati, North Indian, Italian Pizza, South Indian Dosas, AC Hall, and event hosting. Book your table now!"/>
+  <meta name="keywords" content="Sanganer Resort, Bhilwara restaurant, pure veg restaurant Bhilwara, Dal Bati Bhilwara, AC restaurant, birthday party venue Bhilwara, family restaurant"/>
+  <meta name="author" content="Sanganer Resort & Restaurant"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://yourusername.github.io/sanganer-resort/"/>
+  <meta property="og:title" content="Sanganer Resort & Restaurant | Bhilwara"/>
+  <meta property="og:description" content="Bhilwara's finest pure vegetarian restaurant. Rajasthani specialties, AC Hall, event hosting. Book your table now!"/>
+  <meta property="og:type" content="restaurant"/>
+  <meta property="og:locale" content="en_IN"/>
+  <meta name="theme-color" content="#2d8a4e"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -222,6 +232,73 @@
       .footer-grid{grid-template-columns:1fr}
       .services-strip{gap:0.5rem}
       .service-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.2);padding:0.5rem 1rem;width:100%;justify-content:center}
+    }
+
+    /* ===== QR ORDER MODE ===== */
+    body.order-mode .hero-section,
+    body.order-mode #about,
+    body.order-mode #gallery,
+    body.order-mode #events,
+    body.order-mode #reservation,
+    body.order-mode footer,
+    body.order-mode .services-strip,
+    body.order-mode #loader{display:none!important}
+    body.order-mode nav{position:relative}
+    body.order-mode #menu{padding-top:1rem;padding-bottom:6rem}
+
+    .order-banner{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:1rem 5%;text-align:center;font-size:0.9rem;font-weight:500}
+    .order-banner strong{font-size:1.1rem;display:block;margin-bottom:0.2rem}
+
+    .qty-controls{display:none;align-items:center;gap:0.5rem;margin-left:auto;flex-shrink:0}
+    body.order-mode .qty-controls{display:flex}
+    body.order-mode .menu-item{flex-wrap:wrap}
+    .qty-btn{width:30px;height:30px;border-radius:50%;border:2px solid var(--green);background:#fff;color:var(--green);font-size:1.1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;line-height:1;padding:0}
+    .qty-btn:hover{background:var(--green);color:#fff}
+    .qty-val{min-width:20px;text-align:center;font-weight:600;font-size:0.95rem;color:var(--dark)}
+
+    /* Size selector for half/full items */
+    .size-selector{display:none;width:100%;margin-top:0.5rem}
+    body.order-mode .size-selector.has-sizes{display:flex;gap:0.5rem}
+    .size-btn{padding:0.3rem 0.8rem;border-radius:20px;border:1.5px solid var(--border);background:#fff;font-family:'Poppins',sans-serif;font-size:0.72rem;cursor:pointer;transition:all 0.2s;color:var(--text)}
+    .size-btn.active{border-color:var(--green);background:var(--green);color:#fff}
+
+    /* Fixed order bar */
+    #orderBar{position:fixed;bottom:0;left:0;right:0;background:#fff;box-shadow:0 -4px 20px rgba(0,0,0,0.15);padding:0.8rem 5%;display:none;align-items:center;justify-content:space-between;z-index:1001;gap:1rem}
+    #orderBar.visible{display:flex}
+    .order-summary{font-size:0.85rem;color:var(--text)}
+    .order-summary strong{color:var(--dark);font-size:1rem}
+    .order-count{background:var(--green);color:#fff;border-radius:50%;width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:600;margin-right:0.3rem}
+    .btn-place-order{background:var(--green);color:#fff;border:none;padding:0.8rem 2rem;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.3s;white-space:nowrap}
+    .btn-place-order:hover{background:var(--green-dark);transform:translateY(-1px)}
+
+    /* Order Review Modal */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:2000;display:none;align-items:center;justify-content:center;padding:1rem}
+    .modal-overlay.visible{display:flex}
+    .modal-box{background:#fff;border-radius:20px;max-width:500px;width:100%;max-height:85vh;overflow-y:auto;padding:2rem}
+    .modal-box h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--dark);margin-bottom:0.3rem}
+    .modal-table-info{font-size:0.8rem;color:var(--text-light);margin-bottom:1.5rem}
+    .order-list{list-style:none;margin-bottom:1.5rem}
+    .order-list li{display:flex;justify-content:space-between;padding:0.6rem 0;border-bottom:1px solid var(--border);font-size:0.85rem;color:var(--text)}
+    .order-list li:last-child{border-bottom:none}
+    .order-list .item-name{flex:1}
+    .order-list .item-qty{color:var(--text-light);margin:0 1rem;white-space:nowrap}
+    .order-list .item-price{font-weight:600;color:var(--dark);white-space:nowrap}
+    .order-total{display:flex;justify-content:space-between;padding:1rem 0;border-top:2px solid var(--dark);font-size:1.1rem;font-weight:600;color:var(--dark);margin-bottom:1.5rem}
+    .btn-upi-pay{display:flex;align-items:center;justify-content:center;gap:0.5rem;width:100%;padding:1rem;background:linear-gradient(135deg,#5f259f,#8e44ad);color:#fff;border:none;border-radius:50px;font-family:'Poppins',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:all 0.3s;text-decoration:none}
+    .btn-upi-pay:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(95,37,159,0.3)}
+    .upi-note{text-align:center;font-size:0.72rem;color:var(--text-light);margin-top:0.8rem}
+    .btn-close-modal{background:none;border:2px solid var(--border);color:var(--text-light);padding:0.6rem 1.5rem;border-radius:50px;font-family:'Poppins',sans-serif;font-size:0.8rem;cursor:pointer;transition:all 0.2s;margin-top:0.5rem;width:100%;text-align:center}
+    .btn-close-modal:hover{border-color:var(--text);color:var(--dark)}
+
+    /* Order success */
+    .order-success{text-align:center;padding:2rem 0}
+    .order-success .check-big{font-size:3rem;margin-bottom:1rem}
+    .order-success h3{font-family:'Playfair Display',serif;color:var(--green);margin-bottom:0.5rem}
+    .order-success p{font-size:0.85rem;color:var(--text-light);line-height:1.6}
+
+    @media(max-width:768px){
+      #orderBar{flex-direction:column;gap:0.5rem;padding:0.6rem 4%}
+      .modal-box{padding:1.5rem}
     }
   </style>
 </head>
@@ -619,7 +696,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Sanganer Resort & Restaurant · Bhilwara · All rights reserved</p>
+    <p>© 2025–2026 Sanganer Resort & Restaurant · Bhilwara · All rights reserved</p>
     <div class="footer-badge">
       <span class="badge-item">🌿 Pure Veg</span>
       <span class="badge-item">❄️ AC Hall</span>
@@ -627,6 +704,38 @@
     </div>
   </div>
 </footer>
+
+<!-- ORDER BAR (QR Mode) -->
+<div id="orderBanner" class="order-banner" style="display:none">
+  <strong>🍽 Table Order Mode</strong>
+  <span id="tableName">Table #</span> — Browse menu & add items to your order
+</div>
+
+<div id="orderBar">
+  <div class="order-summary"><span class="order-count" id="cartCount">0</span> items · Total: <strong id="cartTotal">₹0</strong></div>
+  <button class="btn-place-order" onclick="openOrderReview()">Place Order →</button>
+</div>
+
+<!-- ORDER REVIEW + UPI MODAL -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-box">
+    <div id="orderReviewContent">
+      <h3>Your Order</h3>
+      <p class="modal-table-info" id="modalTableInfo">Table #</p>
+      <ul class="order-list" id="orderList"></ul>
+      <div class="order-total"><span>Total</span><span id="modalTotal">₹0</span></div>
+      <a class="btn-upi-pay" id="upiPayBtn" href="#">💳 Pay via UPI</a>
+      <p class="upi-note">Opens your UPI app (GPay, PhonePe, Paytm etc.) with amount pre-filled</p>
+      <button class="btn-close-modal" onclick="closeModal()">← Back to Menu</button>
+    </div>
+    <div id="orderSuccessContent" class="order-success" style="display:none">
+      <div class="check-big">✅</div>
+      <h3>Order Placed!</h3>
+      <p>Your order has been sent to the kitchen.<br>Payment will be processed via your UPI app.<br><br>Thank you for dining at<br><strong>Sanganer Resort & Restaurant</strong></p>
+      <button class="btn-close-modal" onclick="closeModal()" style="margin-top:1.5rem">← Continue Browsing</button>
+    </div>
+  </div>
+</div>
 
 <script>
   window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('hidden')},2000)});
@@ -649,6 +758,149 @@
     e.preventDefault();
     e.target.style.display='none';
     document.getElementById('formSuccess').style.display='block';
+  }
+
+  /* ===== QR TABLE ORDERING SYSTEM ===== */
+  const UPI_ID = '8619305795@upi';
+  const UPI_NAME = 'Sanganer Resort';
+  const cart = {};
+  let tableNumber = null;
+
+  (function initOrderMode(){
+    const params = new URLSearchParams(window.location.search);
+    tableNumber = params.get('table');
+    if(!tableNumber) return;
+
+    document.body.classList.add('order-mode');
+    document.getElementById('orderBanner').style.display='block';
+    document.getElementById('tableName').textContent='Table #'+tableNumber;
+    document.getElementById('modalTableInfo').textContent='Table #'+tableNumber;
+
+    // Show all menu panels at once in order mode
+    document.querySelectorAll('.menu-panel').forEach(p=>{p.classList.add('active');p.style.display='block'});
+    document.querySelector('.menu-tabs').style.display='none';
+
+    // Inject quantity controls into every menu item
+    document.querySelectorAll('.menu-item').forEach((item,i)=>{
+      const nameEl = item.querySelector('.menu-item-name');
+      const name = nameEl?nameEl.textContent.trim():'Item';
+
+      // Determine price(s)
+      const priceTag = item.querySelector('.price-tag');
+      const halfFull = item.querySelector('.price-half-full');
+      let price = 0;
+      let hasHalfFull = false;
+      let halfPrice = 0, fullPrice = 0;
+
+      if(priceTag){
+        price = parseInt(priceTag.textContent.replace(/[^0-9]/g,''))||0;
+      } else if(halfFull){
+        hasHalfFull = true;
+        const vals = halfFull.querySelectorAll('.price-val');
+        if(vals.length>=2){
+          halfPrice = parseInt(vals[0].textContent.replace(/[^0-9]/g,''))||0;
+          fullPrice = parseInt(vals[1].textContent.replace(/[^0-9]/g,''))||0;
+        }
+        price = fullPrice; // default to full
+      }
+
+      const itemId = 'item_'+i;
+      item.dataset.itemId = itemId;
+      item.dataset.itemName = name;
+      item.dataset.price = price;
+      item.dataset.halfPrice = halfPrice;
+      item.dataset.fullPrice = fullPrice;
+      item.dataset.hasHalfFull = hasHalfFull;
+      item.dataset.selectedSize = hasHalfFull?'full':'single';
+
+      // Size selector for half/full items
+      if(hasHalfFull){
+        const sizeDiv = document.createElement('div');
+        sizeDiv.className = 'size-selector has-sizes';
+        sizeDiv.innerHTML = `<button type="button" class="size-btn" data-size="half" data-price="${halfPrice}" onclick="selectSize(this)">Half ₹${halfPrice}</button><button type="button" class="size-btn active" data-size="full" data-price="${fullPrice}" onclick="selectSize(this)">Full ₹${fullPrice}</button>`;
+        item.appendChild(sizeDiv);
+      }
+
+      // Quantity controls
+      const qtyDiv = document.createElement('div');
+      qtyDiv.className = 'qty-controls';
+      qtyDiv.innerHTML = `<button type="button" class="qty-btn" onclick="changeQty('${itemId}',-1)">−</button><span class="qty-val" id="qty_${itemId}">0</span><button type="button" class="qty-btn" onclick="changeQty('${itemId}',1)">+</button>`;
+      item.querySelector('.menu-price-col').after(qtyDiv);
+    });
+  })();
+
+  function selectSize(btn){
+    const item = btn.closest('.menu-item');
+    const siblings = btn.parentElement.querySelectorAll('.size-btn');
+    siblings.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const newPrice = parseInt(btn.dataset.price)||0;
+    item.dataset.price = newPrice;
+    item.dataset.selectedSize = btn.dataset.size;
+    const itemId = item.dataset.itemId;
+    if(cart[itemId]){
+      cart[itemId].price = newPrice;
+      cart[itemId].size = btn.dataset.size;
+      updateCartUI();
+    }
+  }
+
+  function changeQty(itemId, delta){
+    const item = document.querySelector('[data-item-id="'+itemId+'"]');
+    if(!item) return;
+    const name = item.dataset.itemName;
+    const price = parseInt(item.dataset.price)||0;
+    const size = item.dataset.selectedSize;
+
+    if(!cart[itemId]) cart[itemId]={name,price,qty:0,size};
+    cart[itemId].qty = Math.max(0, cart[itemId].qty + delta);
+    cart[itemId].price = price;
+    cart[itemId].size = size;
+    if(cart[itemId].qty===0) delete cart[itemId];
+
+    document.getElementById('qty_'+itemId).textContent = cart[itemId]?cart[itemId].qty:0;
+    updateCartUI();
+  }
+
+  function updateCartUI(){
+    let totalItems=0, totalPrice=0;
+    Object.values(cart).forEach(c=>{totalItems+=c.qty;totalPrice+=c.qty*c.price});
+    document.getElementById('cartCount').textContent=totalItems;
+    document.getElementById('cartTotal').textContent='₹'+totalPrice;
+    document.getElementById('orderBar').classList.toggle('visible',totalItems>0);
+  }
+
+  function openOrderReview(){
+    const list=document.getElementById('orderList');
+    list.innerHTML='';
+    let total=0;
+    Object.values(cart).forEach(c=>{
+      const subtotal=c.qty*c.price;
+      total+=subtotal;
+      const sizeLabel = c.size==='half'?' (Half)':c.size==='full'?' (Full)':'';
+      const li=document.createElement('li');
+      li.innerHTML=`<span class="item-name">${c.name}${sizeLabel}</span><span class="item-qty">×${c.qty}</span><span class="item-price">₹${subtotal}</span>`;
+      list.appendChild(li);
+    });
+    document.getElementById('modalTotal').textContent='₹'+total;
+    // Build UPI deep link
+    const upiUrl = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&am=${total}&cu=INR&tn=${encodeURIComponent('Table '+tableNumber+' Order - Sanganer Resort')}`;
+    document.getElementById('upiPayBtn').href=upiUrl;
+    document.getElementById('upiPayBtn').onclick=function(){
+      setTimeout(()=>{
+        document.getElementById('orderReviewContent').style.display='none';
+        document.getElementById('orderSuccessContent').style.display='block';
+      },1000);
+    };
+    document.getElementById('orderReviewContent').style.display='block';
+    document.getElementById('orderSuccessContent').style.display='none';
+    document.getElementById('orderModal').classList.add('visible');
+    document.body.style.overflow='hidden';
+  }
+
+  function closeModal(){
+    document.getElementById('orderModal').classList.remove('visible');
+    document.body.style.overflow='';
   }
 </script>
 </body>
