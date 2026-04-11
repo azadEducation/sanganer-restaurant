@@ -138,17 +138,22 @@ s0.parentNode.insertBefore(s1,s0);
     .menu-panel.active{display:block}
     .menu-cat-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--dark);margin-bottom:1.5rem;padding-bottom:0.8rem;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:0.8rem}
     .menu-cat-title span{font-size:1.2rem}
-    .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem;margin-bottom:2.5rem}
-    .menu-item{background:#fff;border-radius:12px;padding:1.2rem 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;box-shadow:0 2px 8px rgba(0,0,0,0.05);border:1px solid var(--border);transition:all 0.3s}
-    .menu-item:hover{box-shadow:0 6px 20px rgba(45,138,78,0.12);border-color:var(--green);transform:translateY(-2px)}
-    .menu-item-name{font-size:0.88rem;font-weight:500;color:var(--dark);margin-bottom:0.2rem}
-    .menu-item-desc{font-size:0.72rem;color:var(--text-light)}
-    .menu-price-col{text-align:right;flex-shrink:0}
-    .price-tag{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--green);font-weight:700}
-    .price-half-full{font-size:0.72rem;color:var(--text-light);margin-top:0.15rem}
+    .menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem;margin-bottom:2.5rem}
+    .menu-item{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 3px 12px rgba(0,0,0,0.06);border:1px solid var(--border);transition:all 0.35s;display:flex;flex-direction:column;position:relative}
+    .menu-item:hover{box-shadow:0 14px 32px rgba(45,138,78,0.18);border-color:var(--green);transform:translateY(-5px)}
+    .menu-item-img-wrap{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--off-white)}
+    .menu-item-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
+    .menu-item:hover .menu-item-img{transform:scale(1.08)}
+    .menu-item-body{padding:1rem 1.1rem 1.2rem;display:flex;flex-direction:column;gap:0.4rem;flex:1}
+    .menu-item-info{flex:1}
+    .menu-item-name{font-size:0.92rem;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:0.3rem}
+    .menu-item-desc{font-size:0.7rem;color:var(--text-light);line-height:1.5}
+    .menu-price-col{margin-top:0.7rem;text-align:left}
+    .price-tag{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--green);font-weight:700}
+    .price-half-full{font-size:0.7rem;color:var(--text-light);margin-top:0.15rem}
     .price-val{color:var(--green);font-weight:600}
-    .veg-badge{display:inline-block;width:14px;height:14px;border:2px solid #1db954;border-radius:2px;position:relative;flex-shrink:0}
-    .veg-badge::after{content:'';width:6px;height:6px;background:#1db954;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
+    .veg-badge{display:block;width:20px;height:20px;border:2px solid #1db954;border-radius:3px;position:absolute;top:10px;left:10px;background:#fff;z-index:2;box-shadow:0 2px 6px rgba(0,0,0,0.2)}
+    .veg-badge::after{content:'';width:9px;height:9px;background:#1db954;border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}
 
     /* GALLERY */
     #gallery{background:var(--white)}
@@ -235,6 +240,10 @@ s0.parentNode.insertBefore(s1,s0);
       .nav-links,.btn-book{display:none}
       .hamburger{display:flex}
       section{padding:4rem 4%}
+      .menu-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:1rem}
+      .menu-item-body{padding:0.8rem 0.9rem 1rem}
+      .menu-item-name{font-size:0.85rem}
+      .price-tag{font-size:1.05rem}
       .events-grid{grid-template-columns:1fr}
       .about-features{grid-template-columns:1fr}
       .gallery-grid{grid-template-columns:1fr;height:auto}
@@ -262,9 +271,8 @@ s0.parentNode.insertBefore(s1,s0);
     .order-banner{background:linear-gradient(135deg,var(--green-dark),var(--green));color:#fff;padding:1rem 5%;text-align:center;font-size:0.9rem;font-weight:500}
     .order-banner strong{font-size:1.1rem;display:block;margin-bottom:0.2rem}
 
-    .qty-controls{display:none;align-items:center;gap:0.5rem;margin-left:auto;flex-shrink:0}
-    body.order-mode .qty-controls{display:flex}
-    body.order-mode .menu-item{flex-wrap:wrap}
+    .qty-controls{display:none;align-items:center;justify-content:center;gap:0.8rem;flex-shrink:0}
+    body.order-mode .qty-controls{display:flex;width:100%;margin-top:0.7rem;padding-top:0.7rem;border-top:1px solid var(--border)}
     .qty-btn{width:30px;height:30px;border-radius:50%;border:2px solid var(--green);background:#fff;color:var(--green);font-size:1.1rem;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;line-height:1;padding:0}
     .qty-btn:hover{background:var(--green);color:#fff}
     .qty-val{min-width:20px;text-align:center;font-weight:600;font-size:0.95rem;color:var(--dark)}
@@ -413,111 +421,104 @@ s0.parentNode.insertBefore(s1,s0);
     <p style="color:var(--text-light);font-size:0.9rem;margin-top:0.5rem">100% Pure Vegetarian · Fresh & Homestyle</p>
   </div>
   <div class="menu-tabs reveal">
-    <button class="tab-btn active" onclick="switchTab('specials',this)">SR Specials</button>
+    <button class="tab-btn active" onclick="switchTab('thali',this)">⭐ Party Thali</button>
     <button class="tab-btn" onclick="switchTab('maincourse',this)">Main Course</button>
-    <button class="tab-btn" onclick="switchTab('northindian',this)">North Indian</button>
-    <button class="tab-btn" onclick="switchTab('dalbati',this)">Dal Bati</button>
-    <button class="tab-btn" onclick="switchTab('dal',this)">Dal & Rice</button>
-    <button class="tab-btn" onclick="switchTab('bread',this)">Breads</button>
+    <button class="tab-btn" onclick="switchTab('sabji',this)">Sabjiyan</button>
+    <button class="tab-btn" onclick="switchTab('starters',this)">Starters</button>
+    <button class="tab-btn" onclick="switchTab('fastfood',this)">Fast Food</button>
     <button class="tab-btn" onclick="switchTab('pizza',this)">Pizza</button>
+    <button class="tab-btn" onclick="switchTab('dalrice',this)">Dal & Rice</button>
+    <button class="tab-btn" onclick="switchTab('bread',this)">Breads</button>
     <button class="tab-btn" onclick="switchTab('cafe',this)">Café & Maggi</button>
+    <button class="tab-btn" onclick="switchTab('shakes',this)">Shakes & Cream</button>
     <button class="tab-btn" onclick="switchTab('sides',this)">Sides</button>
   </div>
 
-  <!-- SR Specials -->
-  <div id="specials" class="menu-panel active reveal">
-    <div class="menu-cat-title"><span>⭐</span> SR Specials</div>
+  <!-- Party Thali -->
+  <div id="thali" class="menu-panel active reveal">
+    <div class="menu-cat-title"><span>🍛</span> Party Thali — Special Combos</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Paav Bhaji</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Chole Bhature</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg Sandwich</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Cheese Sandwich</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg Cheese Sandwich</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Crispy Corn</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg Manchurian</div><div class="menu-item-desc">Dry & Gravy</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Chawmin</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Idli</div></div><div class="menu-price-col"><div class="price-tag">₹40</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Masala Dosa</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Pizza Dosa</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Cheese Dosa</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Dal+Bati+Thali" alt="Dal Bati Thali" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Dal Bati Thali</div><div class="menu-item-desc">Dal-Bati, Salad, Chach, Chutney</div></div><div class="menu-price-col"><div class="price-tag">₹99</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Special+Dal+Bati+Thali" alt="Special Dal Bati Thali" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Special Dal Bati Thali</div><div class="menu-item-desc">Dal-Bati, Kadhi, Churma, Salad, Papad, Chach</div></div><div class="menu-price-col"><div class="price-tag">₹149</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Thali" alt="Veg Thali" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Thali</div><div class="menu-item-desc">1 Veg Sabji, Paneer Sabji, Dal, Chapati, Pulav, Chach, Salad, Papad</div></div><div class="menu-price-col"><div class="price-tag">₹199</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/fff5e6/e07b35?text=Royal+Thali" alt="Royal Thali" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Royal Thali</div><div class="menu-item-desc">Welcome Drink + Mix Veg, Paneer Sabji, Dal, Chapati, Pulav, Veg Raita, Salad, Papad + Mithai</div></div><div class="menu-price-col"><div class="price-tag">₹299</div></div></div></div>
     </div>
   </div>
 
   <!-- Main Course -->
   <div id="maincourse" class="menu-panel">
-    <div class="menu-cat-title"><span>🍛</span> Main Course — Paneer Dishes</div>
+    <div class="menu-cat-title"><span>🍛</span> Main Course — Paneer Specialties</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Matar Paneer</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹130</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Paneer Ptiyala</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹140</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Kadai Paneer</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹130</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Shahi Paneer</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹100</span> · Full <span class="price-val">₹150</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Palak Paneer</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹100</span> · Full <span class="price-val">₹150</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Paneer Kaju Masala</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹120</span> · Full <span class="price-val">₹200</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Paneer Shimla</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹150</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Paneer Butter Masala</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹130</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Paneer Lababdar</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹150</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Paneer Mushroom Masala</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹150</span></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Matar+Paneer" alt="Matar Paneer" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Matar Paneer</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Patiyala" alt="Paneer Patiyala" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Patiyala</div></div><div class="menu-price-col"><div class="price-tag">₹170</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Kadai+Paneer" alt="Kadai Paneer" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Kadai Paneer</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Shahi+Paneer" alt="Shahi Paneer" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Shahi Paneer</div></div><div class="menu-price-col"><div class="price-tag">₹180</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Palak+Paneer" alt="Palak Paneer" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Palak Paneer</div></div><div class="menu-price-col"><div class="price-tag">₹170</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Kaju+Masala" alt="Paneer Kaju Masala" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Kaju Masala</div></div><div class="menu-price-col"><div class="price-tag">₹250</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Shimla" alt="Paneer Shimla" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Shimla</div></div><div class="menu-price-col"><div class="price-tag">₹180</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Butter+Masala" alt="Paneer Butter Masala" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Butter Masala</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Lababdar" alt="Paneer Lababdar" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Lababdar</div></div><div class="menu-price-col"><div class="price-tag">₹170</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Mushroom" alt="Paneer Mushroom" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Mushroom</div></div><div class="menu-price-col"><div class="price-tag">₹200</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Angara" alt="Paneer Angara" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Angara</div></div><div class="menu-price-col"><div class="price-tag">₹250</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Hyderabadi+Masala" alt="Paneer Hyderabadi Masala" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Hyderabadi Masala</div></div><div class="menu-price-col"><div class="price-tag">₹250</div></div></div></div>
     </div>
   </div>
 
-  <!-- North Indian -->
-  <div id="northindian" class="menu-panel">
-    <div class="menu-cat-title"><span>🌶</span> North Indian Dishes</div>
+  <!-- Sabjiyan -->
+  <div id="sabji" class="menu-panel">
+    <div class="menu-cat-title"><span>🌶</span> Sabjiyan — North Indian</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Sev Tamatar</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Mix Veg. Mewadi</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Malai Pyaz</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Malai Sev</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Sev Doodh</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Aloo Pyaz</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Bhindi Masala</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Chana Masala</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Jeera Aloo</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Dahi Fry</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹80</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Kaju Curry</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹120</span> · Full <span class="price-val">₹200</span></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Sev+Tamatar" alt="Sev Tamatar" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Sev Tamatar</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Mix+Veg+Mewadi" alt="Mix Veg Mewadi" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Mix Veg Mewadi</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Malai+Pyaz" alt="Malai Pyaz" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Malai Pyaz</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Malai+Sev" alt="Malai Sev" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Malai Sev</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Sev+Doodh" alt="Sev Doodh" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Sev Doodh</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Aloo+Pyaz" alt="Aloo Pyaz" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Aloo Pyaz</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Bhindi+Masala" alt="Bhindi Masala" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Bhindi Masala</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Chana+Masala" alt="Chana Masala" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Chana Masala</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Jeera+Aloo" alt="Jeera Aloo" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Jeera Aloo</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Dahi+Fry" alt="Dahi Fry" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Dahi Fry</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Kaju+Curry" alt="Kaju Curry" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Kaju Curry</div></div><div class="menu-price-col"><div class="price-tag">₹220</div></div></div></div>
     </div>
   </div>
 
-  <!-- Dal Bati -->
-  <div id="dalbati" class="menu-panel">
-    <div class="menu-cat-title"><span>🪔</span> SR Dal Bati — Rajasthani Specialty</div>
+  <!-- Starters -->
+  <div id="starters" class="menu-panel">
+    <div class="menu-cat-title"><span>🍢</span> Starters</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Dal Bati</div><div class="menu-item-desc">Traditional Rajasthani Dal Bati</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Special Dal Bati</div><div class="menu-item-desc">SR's special loaded version</div></div><div class="menu-price-col"><div class="price-tag">₹130</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Pakoda" alt="Veg Pakoda" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Pakoda</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Pakoda" alt="Paneer Pakoda" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Pakoda</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Hara+Bhara+Kabab" alt="Hara Bhara Kabab" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Hara Bhara Kabab</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Crispy" alt="Paneer Crispy" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Crispy</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Cheese+Ball" alt="Cheese Ball" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Cheese Ball</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=French+Fries" alt="French Fries" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">French Fries</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+20-20" alt="Paneer 20-20" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer 20-20</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Chilli" alt="Paneer Chilli" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Chilli</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Chinese+Bhel" alt="Chinese Bhel" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Chinese Bhel</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Spring+Roll" alt="Spring Roll" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Spring Roll</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Dry+Manchurian" alt="Dry Manchurian" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Dry Manchurian</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
     </div>
   </div>
 
-  <!-- Dal & Rice -->
-  <div id="dal" class="menu-panel">
-    <div class="menu-cat-title"><span>🍲</span> Dal</div>
+  <!-- Fast Food -->
+  <div id="fastfood" class="menu-panel">
+    <div class="menu-cat-title"><span>🍔</span> Fast Food</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Dal Fry</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹70</span> · Full <span class="price-val">₹100</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Dal Tadka</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Dal Palak</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹90</span> · Full <span class="price-val">₹120</span></div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Dal Makhani</div></div><div class="menu-price-col"><div class="price-half-full">Half <span class="price-val">₹100</span> · Full <span class="price-val">₹150</span></div></div></div>
-    </div>
-    <div class="menu-cat-title" style="margin-top:1rem"><span>🍚</span> Rice</div>
-    <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Plain Rice</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Jeera Rice</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg. Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Matar Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Kashmiri Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Kaju Paneer Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg. Hyderabadi Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹160</div></div></div>
-    </div>
-  </div>
-
-  <!-- Breads -->
-  <div id="bread" class="menu-panel">
-    <div class="menu-cat-title"><span>🫓</span> Indian Breads</div>
-    <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Plain Roti</div></div><div class="menu-price-col"><div class="price-tag">₹10</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Butter Roti</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Laccha Paratha</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Stuffed Paratha</div></div><div class="menu-price-col"><div class="price-tag">₹50</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Stuffed Laccha</div></div><div class="menu-price-col"><div class="price-tag">₹50</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Tandoori Roti</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Masala+Dabeli" alt="Masala Dabeli" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Masala Dabeli</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Dabeli" alt="Veg Dabeli" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Dabeli</div></div><div class="menu-price-col"><div class="price-tag">₹40</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Chowmein" alt="Chowmein" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Chowmein</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Manchurian" alt="Veg Manchurian" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Manchurian</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Burger" alt="Burger" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Burger</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Sandwich" alt="Veg Sandwich" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Sandwich</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Cheese+Sandwich" alt="Cheese Sandwich" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Cheese Sandwich</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Cheese+Sandwich" alt="Veg Cheese Sandwich" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Cheese Sandwich</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Pav+Bhaji" alt="Pav Bhaji" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Pav Bhaji</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Chole+Bhature" alt="Chole Bhature" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Chole Bhature</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Crispy+Corn" alt="Crispy Corn" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Crispy Corn</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Idli" alt="Idli" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Idli</div></div><div class="menu-price-col"><div class="price-tag">₹40</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Masala+Dosa" alt="Masala Dosa" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Masala Dosa</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Pizza+Dosa" alt="Pizza Dosa" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Pizza Dosa</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Cheese+Dosa" alt="Cheese Dosa" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Cheese Dosa</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
     </div>
   </div>
 
@@ -525,29 +526,90 @@ s0.parentNode.insertBefore(s1,s0);
   <div id="pizza" class="menu-panel">
     <div class="menu-cat-title"><span>🍕</span> Italian Pizza</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Margarita</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg. Classic Pizza</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Cheese Corn Pizza</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Margarita+Pizza" alt="Margarita Pizza" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Margarita Pizza</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Cheese+Pizza" alt="Veg Cheese Pizza" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Cheese Pizza</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Cheese+Corn+Pizza" alt="Cheese Corn Pizza" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Cheese Corn Pizza</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
     </div>
   </div>
 
-  <!-- Café -->
-  <div id="cafe" class="menu-panel">
-    <div class="menu-cat-title"><span>☕</span> Coffee</div>
+  <!-- Dal & Rice -->
+  <div id="dalrice" class="menu-panel">
+    <div class="menu-cat-title"><span>🍲</span> Dal</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Hot Coffee</div></div><div class="menu-price-col"><div class="price-tag">₹20</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">SR Special Coffee</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Tea</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Cold Coffee</div></div><div class="menu-price-col"><div class="price-tag">₹50</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Cold Coffee with Ice Cream</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Dal+Fry" alt="Dal Fry" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Dal Fry</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Dal+Tadka" alt="Dal Tadka" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Dal Tadka</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Dal+Palak" alt="Dal Palak" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Dal Palak</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Dal+Makhani" alt="Dal Makhani" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Dal Makhani</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+    </div>
+    <div class="menu-cat-title" style="margin-top:1rem"><span>🍚</span> Rice</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Plain+Rice" alt="Plain Rice" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Plain Rice</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Jeera+Rice" alt="Jeera Rice" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Jeera Rice</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Pulav" alt="Veg Pulav" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Matar+Pulav" alt="Matar Pulav" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Matar Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Kashmiri+Pulav" alt="Kashmiri Pulav" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Kashmiri Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Kaju+Paneer+Pulav" alt="Kaju Paneer Pulav" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Kaju Paneer Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹150</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Hyderabadi+Pulav" alt="Veg Hyderabadi Pulav" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Hyderabadi Pulav</div></div><div class="menu-price-col"><div class="price-tag">₹160</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- Breads -->
+  <div id="bread" class="menu-panel">
+    <div class="menu-cat-title"><span>🫓</span> Chapati</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Plain+Roti" alt="Plain Roti" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Plain Roti</div></div><div class="menu-price-col"><div class="price-tag">₹12</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Butter+Roti" alt="Butter Roti" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Butter Roti</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Missi+Roti" alt="Missi Roti" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Missi Roti</div></div><div class="menu-price-col"><div class="price-tag">₹20</div></div></div></div>
+    </div>
+    <div class="menu-cat-title" style="margin-top:1rem"><span>🥞</span> Paratha</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Plain+Paratha" alt="Plain Paratha" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Plain Paratha</div></div><div class="menu-price-col"><div class="price-tag">₹20</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Laccha+Paratha" alt="Laccha Paratha" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Laccha Paratha</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Aloo+Paratha" alt="Aloo Paratha" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Aloo Paratha</div></div><div class="menu-price-col"><div class="price-tag">₹50</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Paneer+Paratha" alt="Paneer Paratha" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Paneer Paratha</div></div><div class="menu-price-col"><div class="price-tag">₹60</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- Café & Maggi -->
+  <div id="cafe" class="menu-panel">
+    <div class="menu-cat-title"><span>☕</span> Tea, Coffee & Cookies</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Tea" alt="Tea" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Tea</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Hot+Coffee" alt="Hot Coffee" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Hot Coffee</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Cold+Coffee" alt="Cold Coffee" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Cold Coffee</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Biscuit" alt="Biscuit" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Biscuit</div></div><div class="menu-price-col"><div class="price-tag">₹20</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Khari" alt="Khari" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Khari</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Butter+Bread" alt="Butter Bread" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Butter Bread</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div></div>
     </div>
     <div class="menu-cat-title" style="margin-top:1rem"><span>🍜</span> Maggi</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Plain Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹50</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Tadka Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Cheese Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg Cheese Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Plain+Maggi" alt="Plain Maggi" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Plain Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹50</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Maggi" alt="Veg Maggi" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹70</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Tadka+Maggi" alt="Tadka Maggi" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Tadka Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Cheese+Maggi" alt="Cheese Maggi" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Cheese Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Veg+Cheese+Maggi" alt="Veg Cheese Maggi" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Veg Cheese Maggi</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+    </div>
+  </div>
+
+  <!-- Shakes & Cream -->
+  <div id="shakes" class="menu-panel">
+    <div class="menu-cat-title"><span>🥤</span> Shakes</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Badam+Shake" alt="Badam Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Badam Shake</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Kaju+Anjeer+Shake" alt="Kaju Anjeer Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Kaju Anjeer Shake</div></div><div class="menu-price-col"><div class="price-tag">₹110</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Special+Sitafal+Shake" alt="Special Sitafal Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Special Sitafal Shake</div></div><div class="menu-price-col"><div class="price-tag">₹110</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Strawberry+Shake" alt="Strawberry Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Strawberry Shake</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Vanilla+Shake" alt="Vanilla Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Vanilla Shake</div></div><div class="menu-price-col"><div class="price-tag">₹120</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Chiku+Shake" alt="Chiku Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Chiku Shake</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Oreo+Shake" alt="Oreo Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Oreo Shake</div></div><div class="menu-price-col"><div class="price-tag">₹100</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Anjeer+Badam+Shake" alt="Anjeer Badam Shake" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Anjeer Badam Shake</div></div><div class="menu-price-col"><div class="price-tag">₹110</div></div></div></div>
+    </div>
+    <div class="menu-cat-title" style="margin-top:1rem"><span>🍨</span> Cream</div>
+    <div class="menu-grid">
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Mango+Cream" alt="Mango Cream" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Mango Cream</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Coconut+Cream" alt="Coconut Cream" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Coconut Cream</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Sitafal+Cream" alt="Sitafal Cream" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Sitafal Cream</div></div><div class="menu-price-col"><div class="price-tag">₹80</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Lichi+Cream" alt="Lichi Cream" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Lichi Cream</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div></div>
     </div>
   </div>
 
@@ -555,17 +617,13 @@ s0.parentNode.insertBefore(s1,s0);
   <div id="sides" class="menu-panel">
     <div class="menu-cat-title"><span>🫓</span> Papad</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Roasted Papad</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Fried Papad</div></div><div class="menu-price-col"><div class="price-tag">₹20</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Masala Papad</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Roasted+Papad" alt="Roasted Papad" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Roasted Papad</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Fry+Papad" alt="Fry Papad" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Fry Papad</div></div><div class="menu-price-col"><div class="price-tag">₹20</div></div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Masala+Papad" alt="Masala Papad" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Masala Papad</div></div><div class="menu-price-col"><div class="price-tag">₹30</div></div></div></div>
     </div>
-    <div class="menu-cat-title" style="margin-top:1rem"><span>🥛</span> Raita & Drinks</div>
+    <div class="menu-cat-title" style="margin-top:1rem"><span>🍱</span> Full Diet</div>
     <div class="menu-grid">
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Plain Chach</div></div><div class="menu-price-col"><div class="price-tag">₹12</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Masala Chach</div></div><div class="menu-price-col"><div class="price-tag">₹15</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Plain Dahi</div></div><div class="menu-price-col"><div class="price-tag">₹20</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Bundi Raita</div></div><div class="menu-price-col"><div class="price-tag">₹40</div></div></div>
-      <div class="menu-item"><div class="veg-badge"></div><div class="menu-item-info"><div class="menu-item-name">Veg Raita</div></div><div class="menu-price-col"><div class="price-tag">₹50</div></div></div>
+      <div class="menu-item"><div class="menu-item-img-wrap"><div class="veg-badge"></div><img class="menu-item-img" src="https://placehold.co/400x300/f0f8f3/2d8a4e?text=Full+Diet+Thali" alt="Full Diet Thali" loading="lazy"/></div><div class="menu-item-body"><div class="menu-item-info"><div class="menu-item-name">Full Diet Thali</div><div class="menu-item-desc">Hari Sabji, Dal, Chawal, Chapati, Salad</div></div><div class="menu-price-col"><div class="price-tag">₹90</div></div></div></div>
     </div>
   </div>
 </section>
@@ -774,7 +832,7 @@ s0.parentNode.insertBefore(s1,s0);
   }
 
   /* ===== QR TABLE ORDERING SYSTEM ===== */
-  const UPI_ID = '8619305795@upi';
+  const UPI_ID = '12193962289@okbizaxis';
   const UPI_NAME = 'Sanganer Resort';
   const cart = {};
   let tableNumber = null;
